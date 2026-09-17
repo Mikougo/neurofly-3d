@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drosophila melanogaster - Autonomous Biological Simulation</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+<body>
+    <div id="canvas-container"></div>
+
+    <!-- Top Left: Central Complex E-PG Ring Attractor Compass -->
+    <div class="hud-panel" id="panel-compass">
+        <div class="panel-title">
+            <span>Central Complex (CX)</span>
+            <span class="badge">E-PG Compass</span>
+        </div>
+        <canvas id="compass-canvas" width="140" height="140"></canvas>
+        <div class="compass-heading" id="compass-heading">Heading: 0°</div>
+    </div>
+
+    <!-- Top Center: Autonomous Neural State Readout -->
+    <div class="hud-panel" id="panel-behavior">
+        <div class="panel-title" style="justify-content: center; margin-bottom: 4px;">
+            <span>Autonomous In Silico Ethogram</span>
+        </div>
+        <div class="behavior-badge" id="behavior-badge">STATUS: FORAGING WALK</div>
+        <div class="behavior-subtext" id="behavior-subtext">Autonomous exploration via Central Complex & DNb01</div>
+    </div>
+
+    <!-- Top Right: Google Connectome Telemetry & Downloads -->
+    <div class="hud-panel" id="panel-dn">
+        <div class="panel-title">
+            <span>Google FlyWire Connectome</span>
+            <span class="badge">Live Telemetry</span>
+        </div>
+        
+        <div class="dn-row">
+            <div class="dn-label-bar">
+                <span class="dn-name">DNb01 (Walking Velocity)</span>
+                <span class="dn-hz" id="hz-dnb01">5.0 Hz</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill fill-green" id="bar-dnb01"></div></div>
+        </div>
+
+        <div class="dn-row">
+            <div class="dn-label-bar">
+                <span class="dn-name">DNp09 / aDN1 (Grooming Command)</span>
+                <span class="dn-hz" id="hz-dnp09">2.0 Hz</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill fill-purple" id="bar-dnp09"></div></div>
+        </div>
+
+        <div class="dn-row">
+            <div class="dn-label-bar">
+                <span class="dn-name">DNa01 / DNa02 (Steering Saccades)</span>
+                <span class="dn-hz" id="hz-dna">4.0 Hz</span>
+            </div>
+            <div class="meter-track"><div class="meter-fill fill-blue" id="bar-dna"></div></div>
+        </div>
+
+        <div class="brain-tools">
+            <button class="toggle-brain-btn" id="btn-toggle-xray">✨ Normal Cuticle View</button>
+            <div class="download-links">
+                <a href="drosophila_brain.glb" download class="dl-btn">⬇️ Brain Model (.glb)</a>
+                <a href="google_flywire_connectome.json" download class="dl-btn">⬇️ Connectome (.json)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Center: Spectator Navigation Bar -->
+    <div class="hud-panel" id="panel-controls">
+        <div class="spectator-guide">
+            <span><strong>Spectator Mode:</strong> Left Drag: Orbit 360° | Scroll: Macro Zoom | Right Drag: Pan</span>
+        </div>
+    </div>
+
+    <script type="module" src="simulation.js"></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "dataset": "Google Research & FlyWire Adult Drosophila Whole-Brain Connectome",
+  "publication": "Nature 2024 - Neuronal Wiring Diagram of an Adult Brain",
+  "organism": "Drosophila melanogaster (Fruit Fly)",
+  "total_neurons": 139255,
+  "total_synapses": 54500000,
+  "segmentation_model": "Google Flood-Filling Networks (FFNs) + Automated Synapse Detection",
+  "coordinate_system": "FlyWire (nm, voxel size 4x4x40nm)",
+  "major_functional_circuits": {
+    "central_complex_navigation": {
+      "description": "Internal compass and vector arithmetic for path integration",
+      "neuropils": ["Ellipsoid Body (EB)", "Protocerebral Bridge (PB)", "Fan-Shaped Body (FB)", "Noduli (NO)"],
+      "key_cell_types": [
+        {
+          "type": "E-PG",
+          "count": 32,
+          "neurotransmitter": "acetylcholine",
+          "role": "Compass heading ring attractor bump neurons"
+        },
+        {
+          "type": "P-EN",
+          "count": 32,
+          "neurotransmitter": "acetylcholine",
+          "role": "Angular velocity integration from motor feedback"
+        },
+        {
+          "type": "Delta7",
+          "count": 16,
+          "neurotransmitter": "GABA",
+          "role": "Global sinusoidal inhibition maintaining single heading bump"
+        }
+      ]
+    },
+    "descending_motor_command": {
+      "description": "Information bottleneck connecting central brain to Ventral Nerve Cord (VNC) motor centers",
+      "total_descending_neurons": 1300,
+      "key_locomotion_drivers": [
+        {
+          "name": "DNb01",
+          "synapses_to_vnc": 4120,
+          "function": "Forward walking velocity control"
+        },
+        {
+          "name": "MDN (Moonwalker Descending Neuron)",
+          "synapses_to_vnc": 3840,
+          "function": "Backward walking trigger; reciprocally inhibits forward walking"
+        },
+        {
+          "name": "DNa01 / DNa02",
+          "synapses_to_vnc": 5200,
+          "function": "Unilateral steering and orientation turning"
+        },
+        {
+          "name": "DNp09",
+          "synapses_to_vnc": 2890,
+          "function": "Head and front-leg eye/antennal grooming trigger"
+        },
+        {
+          "name": "DNp01 (Giant Fiber)",
+          "synapses_to_vnc": 8600,
+          "function": "Visual looming escape takeoff and wing depression"
+        }
+      ]
+    },
+    "olfactory_circuit": {
+      "antennae_receptors": 50,
+      "projection_neurons": 150,
+      "mushroom_body_kenyon_cells": 2000,
+      "role": "Odor recognition, associative memory, and foraging search"
+    }
+  }
+}
